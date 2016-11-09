@@ -67,8 +67,7 @@
 					//	jQuery("input[name='gender']+[gender = 'data.gender'].('checked', true)
 				//		jQuery("input[name='gender']").attr('checked', true).val(data.gender);
 
-					//	var $radios = $('input:radio[name=gender]');
-					//	$radios.filter('[value="data.gender]').prop('checked', true);
+					
 						$('input:radio[name="gender"][value="' + data['gender'] +'"]').prop('checked', true);
 						console.log(data);
 					}
