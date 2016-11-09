@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="/jquery.min.js"></script>
+
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+<input id="name" type="text" placeholder="name">
+<input id="message" type="text" placeholder="message">
+<input id="submit" type="button" value="submit">
+<br>
+<pre id="output"></pre>
+<script type="text/javascript">
+    var socket = io.connect('http://localhost:8080/');
+    jQuery('#submit').on('click', function() { socket.on('message', function(data) {
+        socket.emit('message', {
+            'name': jQuery('#name').val(),
+            'message': jQuery('#message').val()
+        });
+    }); io.emit('message', {
+        'name': data.name,
+        'message': data.message
+    });
+    });
+
+</script>
+</body>
+</html>

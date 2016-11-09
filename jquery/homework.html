@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
+		<style type="text/css">
+			#draggable {
+				cursor:pointer;
+
+				width:100px;
+				height:100px;
+				text-align: center;
+				align-content: center;
+				padding-top: 3%;
+				font-size: large;
+				color: white;
+				background-color: green;
+			}
+		</style>
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+		<script>
+			$( function() {
+				$( "#draggable" ).draggable();
+			} );
+		</script>
+	</head>
+	<body>
+		<div id="draggable">DRAG ME...Camina..</div>
+
+		<script type="text/javascript">
+			// make the div draggable such that you can move it around, just like a window on your computer
+
+			// to do so, attach a mousedown listener to the draggable div that sets a global flag as well as the
+			// position of the mousedown event within the div
+			// you can get this relative position within the div by using event.pageX / .pageY as well
+			// as jQuery(this).offset().left / .top
+
+			// attach a mousemove listener to the document element, that this event will be fired even if
+			// the mouse is on top of the draggable div due to event bubbling
+			// in this listener, we can update the position of the draggable div should the draggable flag be set
+			// you can try this by first simply setting the position of the draggable div to event.pageX / .pageY
+			// after that, incorporate the relative position within the div that we stored in the mousedown listener of the draggable div
+
+			// attach a mouseup listener to the document element that resets
+			// the global flag such that the dragging will stop once you lift the mouse button
+
+
+
+		</script>
+	</body>
+</html>

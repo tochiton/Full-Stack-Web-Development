@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+	</head>
+	<body>
+	 	<select id="choice" size="4">
+			<option>max</option>
+			<option>anna</option>
+			<option>tim</option>
+			<option>alex</option>
+		</select>
+
+		<br><br>
+
+		<table border="1">
+			<tr>
+				<td>first:</td>
+				<td><input id="first" type="text"></td>
+			</tr>
+			<tr>
+				<td>last:</td>
+				<td><input id="last" type="text"></td>
+			</tr>
+			<tr>
+				<td>gender:</td>
+				<td>
+					<input type="radio" name="gender" value="male">male
+					<br>
+					<input type="radio" name="gender" value="female">female
+					<br>
+					<input type="radio" name="gender" value="other">other
+				</td>
+			</tr>
+			<tr>
+				<td>random:</td>
+				<td><input id="random" type="text"></td>
+			</tr>
+		</table>
+
+		<script type="text/javascript">
+			// when somebody selects an option in the choice selection element, the script should make a get
+			// request to: http://mercury.cs.pdx.edu/exercise/ajax/lookup.json?name=max
+			// the data that is being received by this query is in the json format and might look
+			// like: { 'first':'max','last':'baum','gender':'male','random':'3BLJEkKk' }
+			// this received data should subsequently be used to set the first textbox,
+			// the last textbox, the gender radio button as well as the random textbox
+
+			$("#choice").change(function(){
+				var url = 'http://mercury.cs.pdx.edu/exercise/ajax/lookup.json?name='+jQuery(this).val();
+
+				jQuery.ajax({
+					'type': 'GET',
+					'url': url,
+					'dataType': 'json',
+					'success': function (data) {
+						var temp = JSON.stringify(data);
+						jQuery('#first').val(data.first);
+						jQuery('#last').val(data.last);
+						jQuery('#random').val(data.random);
+
+				//		jQuery('#ratio').attr('checked', true);
+					//	jQuery("input[name='gender']+[gender = 'data.gender'].('checked', true)
+				//		jQuery("input[name='gender']").attr('checked', true).val(data.gender);
+
+					//	var $radios = $('input:radio[name=gender]');
+					//	$radios.filter('[value="data.gender]').prop('checked', true);
+						$('input:radio[name="gender"][value="' + data['gender'] +'"]').prop('checked', true);
+						console.log(data);
+					}
+				});
+
+
+//				alert('Selected value: ' + $(this).val());
+			});
+
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

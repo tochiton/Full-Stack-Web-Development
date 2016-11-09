@@ -1,0 +1,1 @@
+this readme.txt should end up being in the same folder as setup.bash

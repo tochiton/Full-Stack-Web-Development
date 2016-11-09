@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script
+</head>
+<body>
+    <input id="example1" type = button value="example">
+    <script type="text/javascript">
+        jQuery('input[type="button"]')
+                .on('click', function() {
+                    console.log('click');
+                })
+                .on('mouseover', function() {
+                    console.log('mouseover');
+                })
+                .on('mousemove', function() {
+                    console.log('mousemove');
+                })
+                .on('mouseout', function() {
+                    console.log('mouseout');
+                })
+        ;
+
+        $(document).ready(function() {
+            $('#btn1').click(function () {
+                $('#test1').text('Hello world!');
+            });
+            $("#btn2").click(function () {
+                $("#test2").html("<b>Hello world!");
+            });
+
+            jQuery("#btn3").click(function(){
+                jQuery("#test3").val("Dolly Duck");
+            });
+        });
+    </script>
+    <p id="test1">This is a paragraph.</p>
+    <p id="test2">This is another paragraph.</p>
+    <p>Input field: <input type="text" id="test3" value="Mickey mouse"></p>
+    <button id="btn1">Set Text</button>
+    <button id="btn2">Set HTML</button>
+    <button id="btn3">Set Value</button>
+
+    <input id="example" type="button" value="example">
+    <script type="text/javascript">
+        var count = 1;
+        jQuery('#example').on('click', function() {
+            jQuery(this).val('clicked: ' + count++);
+        });
+    </script>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

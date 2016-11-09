@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
+		<style type="text/css">
+			#output {
+				cursor:pointer;
+
+				width:100px;
+				height:100px;
+
+				background-color:#CCCCCC;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="output"></div>
+
+		<script type="text/javascript">
+			// attach a click listener to the output div that sets the text of the div to the relative position (format: 'x - y')
+			// you can get this relative position within the div by using event.pageX / .pageY as well as jQuery(this).offset().left / .top
+			// for example, the text should be '0 - 0' when clicking the top left corner and '99 - 0' when clicking the top right corner
+			//var p = jQuery('#output');
+			//var position = p.position();
+			//console.log(position.left);
+			//console.log(position.top);
+			jQuery('#output').on('click', function (event){
+			jQuery(this).text((event.pageX - jQuery(this).offset().left)+' - '+(event.pageY - jQuery(this).offset().top));
+
+			});
+
+
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+	</head>
+	<script>
+		{
+			'user': [
+			{ 'first': 'max', 'last': 'baum', 'gender': 'male', 'visible': true },
+			{ 'first': 'anna', 'last': 'hahn', 'gender': 'female', 'visible': false },
+			{ 'first': 'tim', 'last': 'stein', 'gender': 'male', 'visible': false }
+		],
+				'name': function() {
+			return this.first + ' ' + this.last;
+		}
+		}
+	</script>
+	<body>
+
+	<table border="1">
+		<tr>
+			<th>name</th>
+			<th>gender</th>
+		</tr>
+		{{#user}}
+		{{#visible}}
+		<tr>
+			<td>{{name}}</td>
+			<td>{{gender}}</td>
+		</tr>
+		{{/visible
+
+		}}
+		{{/user}}
+	</table>
+
+		<!--
+			given a javascript object like:
+				{
+					'user': [
+						{ 'first': 'max', 'last': 'baum', 'gender': 'male', 'visible': true },
+						{ 'first': 'anna', 'last': 'hahn', 'gender': 'female', 'visible': false },
+						{ 'first': 'tim', 'last': 'stein', 'gender': 'male', 'visible': false }
+					],
+					'name': function() {
+						return this.first + ' ' + this.last;
+					}
+				}
+
+			use mustache to produce the output:
+				<table border="1">
+					<tr>
+						<th>name</th>
+						<th>gender</th>
+					</tr>
+					<tr>
+						<td>max baum</td>
+						<td>male</td>
+					</tr>
+					<tr>
+						<td>anna hahn</td>
+						<td>female</td>
+					</tr>
+					<tr>
+						<td>tim stein</td>
+						<td>male</td>
+					</tr>
+				</table>
+
+			given a javascript object like:
+				{
+					'user': [
+						{ 'first': 'max', 'last': 'baum', 'gender': 'male', 'visible': false },
+						{ 'first': 'anna', 'last': 'hahn', 'gender': 'female', 'visible': true },
+						{ 'first': 'tim', 'last': 'stein', 'gender': 'male', 'visible': true }
+					],
+					'name': function() {
+						return this.first + ' ' + this.last;
+					}
+				}
+
+			use mustache to produce the output:
+				<table border="1">
+					<tr>
+						<th>name</th>
+						<th>gender</th>
+					</tr>
+					<tr>
+						<td>anna hahn</td>
+						<td>female</td>
+					</tr>
+					<tr>
+						<td>tim stein</td>
+						<td>male</td>
+					</tr>
+				</table>
+		-->
+	</body>
+</html>

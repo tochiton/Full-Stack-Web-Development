@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+
+		<script type="text/javascript">
+			var functionReplace = function(strInput) {
+				// return the input with 'quick' replaced by 'sly' and 'lazy' replaced by 'sharp', regardless of the case of the letters
+				var first =	strInput.replace( new RegExp('quick','gi'),'sly');
+				var second = first.replace(new RegExp('lazy','gi'),'sharp');
+
+				return second;
+			};
+
+			console.log(functionReplace('the QUICK brown fox is quick')); // expected: 'the sly brown fox is sly'
+			console.log(functionReplace('jumps OVER the lazy dog')); // expected: 'jumps OVER the sharp dog'
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

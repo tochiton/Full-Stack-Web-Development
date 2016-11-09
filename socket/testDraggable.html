@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
+    <style type="text/css">
+        #draggable {
+            cursor:pointer;
+
+            width:100px;
+            height:100px;
+
+            background-color:#CCCCCC;
+        }
+    </style>
+</head>
+<body>
+<div id="draggable"></div>
+
+<script type="text/javascript">
+    var objectActive = null;
+    var intShiftX = 0;
+    var intShiftY = 0;
+
+    jQuery(document)
+            .on('mousemove', function(event) {
+                if (objectActive !== null) {
+                    jQuery(objectActive)
+                            .css({
+                                'position': 'absolute',
+                                'left': (event.pageX - intShiftX) + 'px',
+                                'top': (event.pageY - intShiftY) + 'px'
+                            })
+                    ;
+                }
+            })
+            .on('mouseup', function(event) {
+                objectActive = null;
+            })
+    ;
+
+    jQuery('#draggable')
+            .on('mousedown', function(event) {
+                if (event.which === 1) {
+                    objectActive = this;
+                    intShiftX = event.pageX - jQuery(this).offset().left;
+                    intShiftY = event.pageY - jQuery(this).offset().top;
+                    console.log(intShiftX);
+                }
+            });
+</script>
+</body>
+</html>

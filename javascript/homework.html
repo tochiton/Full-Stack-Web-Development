@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+	</head>
+	<body>
+		<div id="output">output</div>
+
+		<script type="text/javascript">
+			var functionMake = function(strInput) {
+				// create a html table that represents the input csv and set the content of the
+				// output div to this html table
+
+				// for the example below, the created html table should be:
+				// <table border="1"><tr><td>a</td><td>b</td><td>c</td></tr><tr><td>1</td><td>2</td><td>3</td></tr></table>
+
+				var out
+
+
+				/*	strInput.split('\n');
+				strInput.split('\n')[0].split(', ');
+
+				var k = 0;
+				var input = myarray.split(",");
+				//var another = input.replace(/(\r\n|\n|\r)/gm,"");
+
+				console.log(input);
+
+				var body = document.getElementsByTagName("body")[0];
+				var tbl = document.createElement("table");
+				var tblBody = document.createElement("tbody");
+				for(var i = 0; i < 2; i++){
+					var row = document.createElement("tr");
+
+					for(var j =0; j < 3; j++){
+						var cell = document.createElement("td");
+						var cellText = document.createTextNode(input[i+j]);
+						cell.appendChild(cellText);
+						row.appendChild(cell);
+					}
+					tblBody.appendChild(row);
+				}
+				tbl.appendChild(tblBody);
+				body.appendChild(tbl);
+				tbl.setAttribute("border", "2");
+			*/
+			};
+
+			functionMake('a,b,c\n1,2,3\n'); // the new line at the end should not make a difference
+		</script>
+	</body>
+</html>

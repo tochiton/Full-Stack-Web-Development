@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+	</head>
+
+	<script>
+/*
+		var user = {
+			first: 'max',
+			last: 'mustermann'
+		}
+		var message = 'hello world';
+
+
+*/
+		{
+			'user': {
+			'first': 'max',
+					'last': 'mustermann'
+		},
+			'message': 'hello world'
+		}
+
+	</script>
+
+{{#user}}
+	hello {{user.first}} {{user.last}}, our message of today is: "{{message}}"
+	{{/user}}
+
+	<body>
+
+		<!--
+			given a javascript object like:
+				{
+					'user': {
+						'first': 'max',
+						'last': 'mustermann'
+					},
+					'message': 'hello world'
+				}
+
+			use mustache to produce the output:
+				hello max mustermann, our messsage of today is: "hello world"
+		-->
+
+	</body>
+</html>

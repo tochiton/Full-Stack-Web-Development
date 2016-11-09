@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"/>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+</head>
+<body>
+<input id="input" type="text" placeholder="input">
+<br>
+<pre id="output">output</pre>
+
+<script type="text/javascript">
+    // when somebody enters 'b' into the input textbox, the script should make a get
+    // request to: http://mercury.cs.pdx.edu/exercise/ajax/suggest.json?binary=a
+    // the data that is being received by this query is in the json format and might
+    // look like: { 'files':['bash','bunzip2','busybox'] }
+    // this received data should subsequently set as the content of the output element as follows: 'bash\nbunzip2\nbusybox'
+
+
+        jQuery('#input')
+                .change(function () {
+                    var text = jQuery('#input').val();
+                    var url = 'http://mercury.cs.pdx.edu/exercise/ajax/suggest.json?binary=' + text;
+                    jQuery.ajax({
+                        'type': 'GET',
+                        'url': url,
+                        'dataType': 'json',
+                        'success': function (data) {
+                            var temp = JSON.stringify(data);
+
+                            var test = temp;
+                            test = test.slice(11);
+                            test = test.replace(/","/gi,'\n');
+                           // test = test.replace(/"/gi,'');
+                          //test = test.replace(new RegExp('/','gi'),'');
+                          //  test = test.replace(//)
+                            test = test.slice(0, -3);
+                            console.log(test);
+                            jQuery('#output').html(test);
+                            //console.log(JSON.stringify(data));
+                        }
+                    });
+
+                });
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

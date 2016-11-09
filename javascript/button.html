@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+	</head>
+	<body>
+		<input id="input" type="text" placeholder="input">
+		<br>
+		<input id="copy" type="button" value="copy">
+		<br>
+		<div id="output">output</div>
+		
+		<script type="text/javascript">
+			/* jQuery('#copy')
+					.on('click', function () {
+						jQuery('#output')
+								.text(jQuery('#input').val());
+
+					});
+			*/
+			document.getElementById('copy').onclick = function () {
+				var to_attach = document.getElementById('input').value;
+				document.getElementById('output').innerHTML = to_attach;
+			}
+			</script>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <td>a</td>
+        <td>b</td>\
+        <td>c</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+    </tr>
+</table>
+
+<!DOCTYPE html>
+
+
+    <title>getElementById example</title>
+    <script>
+        function changeColor(newColor) {
+            var elem = document.getElementById("para1");
+            elem.style.color = newColor;
+        }
+    </script>
+
+
+<p id="para1">Some text here</p>
+<button onclick="changeColor('blue');">blue</button>
+<button onclick="changeColor('red');">red</button>
+</body>
+
+</html>
